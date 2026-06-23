@@ -1,0 +1,304 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.db{font-family:'Sora',sans-serif;background:#f5f4f1;padding:28px 24px;border-radius:16px;color:#1a1a1a}
+.db-eyebrow{font-size:11px;font-weight:500;color:#aaa;letter-spacing:.07em;margin-bottom:6px}
+.db-headline{font-size:20px;font-weight:600;color:#1a1a1a;line-height:1.35;margin-bottom:6px}
+.db-sub{font-size:12px;color:#666;line-height:1.7;max-width:600px;margin-bottom:24px}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.kpi{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #e8e5de;position:relative}
+.kpi-l{font-size:10px;font-weight:600;color:#aaa;letter-spacing:.06em;margin-bottom:6px;padding-right:22px}
+.kpi-v{font-size:22px;font-weight:600;color:#1a1a1a;line-height:1}
+.kpi-d{font-size:11px;color:#bbb;margin-top:4px}
+.kpi.amber .kpi-v{color:#b06a00}
+.kpi.green .kpi-v{color:#1a7a4a}
+.kpi.red .kpi-v{color:#b03a2e}
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.sc{background:#fff;border-radius:10px;border:1px solid #e8e5de;overflow:hidden;position:relative}
+.sc-top{padding:14px 16px 12px}
+.sc-bar{height:3px;width:100%;margin-bottom:10px;border-radius:2px}
+.sc-tag{font-size:10px;font-weight:600;letter-spacing:.07em;margin-bottom:3px}
+.sc-n{font-size:28px;font-weight:600;color:#1a1a1a;line-height:1}
+.sc-share{font-size:11px;color:#bbb;margin-top:2px}
+.sc-rows{padding:10px 16px;border-top:1px solid #f0ede8}
+.sr{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f7f5f2}
+.sr:last-child{border-bottom:none}
+.sk{font-size:11px;color:#777}
+.sv{font-size:11px;font-weight:600;color:#1a1a1a}
+.sc-note{padding:10px 16px;border-top:1px solid #f0ede8;background:#fafaf8;font-size:11px;color:#666;line-height:1.6}
+.sc-note strong{color:#1a1a1a;font-weight:600}
+.sc-target{padding:8px 16px 12px;background:#fafaf8;font-size:11px;color:#888;line-height:1.5;border-top:1px dashed #ede9e0}
+.sc-target strong{color:#555;font-weight:600}
+.mid{display:grid;grid-template-columns:1fr 1.7fr;gap:8px;margin-bottom:16px}
+.bot{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.panel{background:#fff;border-radius:10px;border:1px solid #e8e5de;padding:16px;position:relative}
+.ptitle{font-size:10px;font-weight:600;color:#aaa;letter-spacing:.07em;margin-bottom:14px;padding-right:24px}
+.fb-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.fb-lbl{font-size:11px;font-weight:600;min-width:90px}
+.fb-track{flex:1;background:#f0ede8;border-radius:3px;height:8px;overflow:hidden}
+.fb-fill{height:100%;border-radius:3px}
+.fb-n{font-size:11px;font-weight:600;min-width:50px;text-align:right}
+.fb-p{font-size:10px;color:#bbb;min-width:34px;text-align:right}
+.drop-row{display:flex;justify-content:space-between;padding:7px 0;border-top:1px solid #f0ede8;font-size:11px}
+.drop-lbl{color:#666}
+.drop-val{font-weight:600}
+.leg{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.leg-i{display:flex;align-items:center;gap:5px;font-size:11px;color:#666;font-weight:500}
+.leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.tabs{display:flex;gap:4px;margin-bottom:12px}
+.tab{background:#f5f4f1;border:none;font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.04em;color:#999;padding:5px 10px;border-radius:6px;cursor:pointer}
+.tab.on{background:#1a1a1a;color:#fff}
+.ch-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.ch-n{font-size:11px;color:#444;font-weight:500;min-width:120px}
+.ch-track{flex:1;background:#f0ede8;border-radius:2px;height:5px;overflow:hidden}
+.ch-fill{height:100%;border-radius:2px}
+.ch-p{font-size:11px;font-weight:600;color:#1a1a1a;min-width:36px;text-align:right}
+.story{background:#fff;border-radius:10px;border:1px solid #e8e5de;padding:18px 20px;position:relative}
+.story-title{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:3px;padding-right:24px}
+.story-sub{font-size:11px;color:#aaa;margin-bottom:14px}
+.story-body{font-size:12px;color:#444;line-height:1.85}
+.story-body strong{color:#1a1a1a;font-weight:600}
+.hi{font-weight:600;padding:1px 5px;border-radius:4px}
+.hi-b{background:#e5f0fb;color:#1254a0}
+.hi-a{background:#fef3db;color:#a06400}
+.hi-g{background:#e0f4ec;color:#0e5e34}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.act{border-radius:8px;padding:12px 13px}
+.act-lbl{font-size:10px;font-weight:600;letter-spacing:.06em;margin-bottom:5px}
+.act p{font-size:11px;line-height:1.65;color:#555}
+.act.aw{background:#f0f7ff;border:1px solid #c8dff7}.act.aw .act-lbl{color:#1254a0}
+.act.co{background:#fff9ee;border:1px solid #f5dfa0}.act.co .act-lbl{color:#a06400}
+.act.cv{background:#edfaf4;border:1px solid #a8e4c4}.act.cv .act-lbl{color:#0e5e34}
+/* info button + tooltip */
+.ib{position:absolute;top:14px;right:14px;width:18px;height:18px;border-radius:50%;background:#f0ede8;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:#aaa;font-family:'Sora',sans-serif;z-index:5;padding:0}
+.ib:hover{background:#e0ddd8;color:#555}
+.tt{display:none;position:absolute;top:36px;right:0;width:230px;background:#1a1a1a;color:#e8e6e1;font-size:11px;line-height:1.65;padding:10px 12px;border-radius:8px;z-index:100;pointer-events:none;font-family:'Sora',sans-serif;font-weight:400}
+.tt::before{content:'';position:absolute;top:-5px;right:8px;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:5px solid #1a1a1a}
+.ib:hover+.tt,.ib:focus+.tt{display:block}
+.alert-bar{background:#fff8ec;border:1px solid #f5dfa0;border-radius:8px;padding:10px 14px;font-size:12px;color:#7a4f00;margin-bottom:16px;line-height:1.6}
+.alert-bar strong{font-weight:600}
+</style>
+
+<div class="db">
+  <div class="db-eyebrow">PAPERDIGIT · K-MEANS SESSION ANALYSIS · k = 3 · 430,305 SESSIONS</div>
+  <div class="db-headline">93.8% of sessions are stuck at Awareness — they never go deeper</div>
+  <div class="db-sub">K-Means identified three sharply distinct behavioural clusters. Consideration users are extraordinarily active (51.9 avg events, 9.9 unique pages) but represent only 4.9% of traffic. The Conversion cluster is small but highly efficient. Conversion events were weighted ×20 to ensure clean cluster separation.</div>
+
+  <div class="alert-bar">⚠ <strong>The Awareness trap is severe.</strong> To move from Awareness to Consideration, a user needs to view ~8.6 more pages and trigger ~48 more events. That's a steep engagement cliff — and 93.8% of sessions never clear it.</div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-l">TOTAL SESSIONS</div>
+      <div class="kpi-v">430,305</div>
+      <div class="kpi-d">across all 3 clusters</div>
+      <button class="ib">i</button>
+      <div class="tt">Total web sessions analysed by the K-Means model. Each session is one user visit, aggregated from raw page events before clustering into 3 behavioural stages.</div>
+    </div>
+    <div class="kpi red">
+      <div class="kpi-l">AWARENESS SHARE</div>
+      <div class="kpi-v">93.8%</div>
+      <div class="kpi-d">403,608 low-engagement sessions</div>
+      <button class="ib">i</button>
+      <div class="tt">93.8% of all sessions fall into the Awareness cluster — characterised by low event counts (avg 4.3 events, 1.4 unique pages). These users are discovering the brand but show no deep engagement signal.</div>
+    </div>
+    <div class="kpi amber">
+      <div class="kpi-l">BIGGEST DROP-OFF</div>
+      <div class="kpi-v">−94.8%</div>
+      <div class="kpi-d">Awareness → Consideration</div>
+      <button class="ib">i</button>
+      <div class="tt">Only 5.2% of sessions reach Consideration-level engagement. The gap is enormous — Consideration users average 51.9 events vs 4.3 for Awareness. The engagement cliff between stages is the primary growth bottleneck.</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-l">OVERALL CVR</div>
+      <div class="kpi-v">1.12%</div>
+      <div class="kpi-d">4,807 converting sessions</div>
+      <button class="ib">i</button>
+      <div class="tt">Overall conversion rate: 4,807 converting sessions out of 430,305 total. The Conversion cluster was isolated cleanly by the ×20 event weight — 100% of sessions in this cluster contain a conversion event.</div>
+    </div>
+  </div>
+
+  <div class="stages">
+    <div class="sc">
+      <div class="sc-top">
+        <div class="sc-bar" style="background:#378ADD"></div>
+        <div class="sc-tag" style="color:#1254a0">AWARENESS</div>
+        <div class="sc-n">404,406</div>
+        <div class="sc-share">93.97% of total traffic</div>
+      </div>
+      <div class="sc-rows">
+        <div class="sr"><span class="sk">Avg total events</span><span class="sv">4.29</span></div>
+        <div class="sr"><span class="sk">Avg page views</span><span class="sv">2.17</span></div>
+        <div class="sr"><span class="sk">Avg unique pages</span><span class="sv">1.36 → 1.4</span></div>
+        <div class="sr"><span class="sk">Conversion rate</span><span class="sv">0.0%</span></div>
+      </div>
+      <div class="sc-note">Top channels: <strong>Organic (45.8%)</strong>, Direct (28%), SEM (12.8%). Almost all land on <strong>Speaker Profile</strong> pages (72.8%).</div>
+      <div class="sc-target"><strong>Growth target:</strong> +8.6 pages · +48 events to reach Consideration</div>
+      <button class="ib" style="top:14px;right:14px">i</button>
+      <div class="tt">The dominant cluster. Users arrive, view a Speaker Profile, and leave. Avg 1.4 unique pages means almost no second-page exploration. Zero conversions in this cluster by model definition. The growth target (+8.6 pages, +48 events) shows how large the behavioural gap to Consideration actually is.</div>
+    </div>
+    <div class="sc">
+      <div class="sc-top">
+        <div class="sc-bar" style="background:#EF9F27"></div>
+        <div class="sc-tag" style="color:#a06400">CONSIDERATION</div>
+        <div class="sc-n">21,093</div>
+        <div class="sc-share">4.90% of total traffic</div>
+      </div>
+      <div class="sc-rows">
+        <div class="sr"><span class="sk">Avg total events</span><span class="sv">51.90</span></div>
+        <div class="sr"><span class="sk">Avg page views</span><span class="sv">23.23</span></div>
+        <div class="sr"><span class="sk">Avg unique pages</span><span class="sv">9.94 → 9.9</span></div>
+        <div class="sr"><span class="sk">Conversion rate</span><span class="sv">0.0%</span></div>
+      </div>
+      <div class="sc-note">Top channels: <strong>Organic (38.4%)</strong>, SEM (26.6%), Direct (20.8%). Browse <strong>Speaker Profile + Overview</strong> pages deeply.</div>
+      <div class="sc-target"><strong>Growth target:</strong> CTA optimisation & exit-intent overlays to convert this highly engaged group</div>
+      <button class="ib" style="top:14px;right:14px">i</button>
+      <div class="tt">The most engaged non-converting cluster. These users trigger 51.9 events and visit 9.9 unique pages — 12× more active than Awareness. Yet none convert. They are deep researchers who need a targeted nudge. This is the highest-ROI stage to optimise.</div>
+    </div>
+    <div class="sc">
+      <div class="sc-top">
+        <div class="sc-bar" style="background:#1a7a4a"></div>
+        <div class="sc-tag" style="color:#0e5e34">CONVERSION</div>
+        <div class="sc-n">4,807</div>
+        <div class="sc-share">1.12% of total traffic</div>
+      </div>
+      <div class="sc-rows">
+        <div class="sr"><span class="sk">Avg total events</span><span class="sv">21.60</span></div>
+        <div class="sr"><span class="sk">Avg page views</span><span class="sv">9.63</span></div>
+        <div class="sr"><span class="sk">Avg unique pages</span><span class="sv">4.36 → 4.4</span></div>
+        <div class="sr"><span class="sk">Conversion rate</span><span class="sv" style="color:#1a7a4a">100.0%</span></div>
+      </div>
+      <div class="sc-note">Top channels: <strong>Organic (36.8%)</strong>, Direct (24%), SEM (23.8%). Mostly land on <strong>Speaker Profile</strong> (76.1%).</div>
+      <div class="sc-target"><strong>Success profile:</strong> Converts with ~4.4 pages and ~22 events — far fewer than Consideration</div>
+      <button class="ib" style="top:14px;right:14px">i</button>
+      <div class="tt">Isolated cleanly by the ×20 conversion weight. Crucially, converters use fewer pages (4.4) and fewer events (21.6) than Consideration users (9.9 pages, 51.9 events) — they arrive with intent already formed, not needing to research. Speaker Profile is still the dominant landing page (76.1%).</div>
+    </div>
+  </div>
+
+  <div class="mid">
+    <div class="panel">
+      <div class="ptitle">FUNNEL VOLUME & DROP-OFF</div>
+      <button class="ib">i</button>
+      <div class="tt">Bar width shows each stage's share of total sessions. Drop-off rates show the % of users who don't progress to the next stage. The Awareness → Consideration gap is the defining challenge of this funnel.</div>
+      <div class="fb-row">
+        <span class="fb-lbl" style="color:#1254a0">Awareness</span>
+        <div class="fb-track"><div class="fb-fill" style="width:100%;background:#378ADD"></div></div>
+        <span class="fb-n" style="color:#1254a0">404,406</span>
+        <span class="fb-p">93.97%</span>
+      </div>
+      <div class="fb-row">
+        <span class="fb-lbl" style="color:#a06400">Consideration</span>
+        <div class="fb-track"><div class="fb-fill" style="width:5.2%;background:#EF9F27"></div></div>
+        <span class="fb-n" style="color:#a06400">21,093</span>
+        <span class="fb-p">4.90%</span>
+      </div>
+      <div class="fb-row">
+        <span class="fb-lbl" style="color:#0e5e34">Conversion</span>
+        <div class="fb-track"><div class="fb-fill" style="width:1.2%;background:#1a7a4a"></div></div>
+        <span class="fb-n" style="color:#0e5e34">4,807</span>
+        <span class="fb-p">1.12%</span>
+      </div>
+      <div class="drop-row"><span class="drop-lbl">Awareness → Consideration</span><span class="drop-val" style="color:#b03a2e">−94.8%</span></div>
+      <div class="drop-row"><span class="drop-lbl">Consideration → Conversion</span><span class="drop-val" style="color:#b06a00">−77.2%</span></div>
+      <div class="drop-row"><span class="drop-lbl">Overall funnel conversion</span><span class="drop-val" style="color:#1a7a4a">1.12%</span></div>
+    </div>
+
+    <div class="panel">
+      <div class="ptitle">AVG ENGAGEMENT BY STAGE</div>
+      <button class="ib">i</button>
+      <div class="tt">Compares real cluster centroid values. Consideration dominates every metric — 51.9 avg events vs 4.3 for Awareness. Note that Conversion users engage less than Consideration, confirming they arrive with intent rather than needing to research extensively.</div>
+      <div class="leg">
+        <span class="leg-i"><span class="leg-dot" style="background:#378ADD"></span>Awareness</span>
+        <span class="leg-i"><span class="leg-dot" style="background:#EF9F27"></span>Consideration</span>
+        <span class="leg-i"><span class="leg-dot" style="background:#1a7a4a"></span>Conversion</span>
+      </div>
+      <div style="position:relative;height:185px">
+        <canvas id="engChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="bot">
+    <div class="panel">
+      <div class="ptitle">TOP ACQUISITION CHANNELS</div>
+      <button class="ib">i</button>
+      <div class="tt">Top 3 traffic sources per stage. Notably, Organic Search dominates all three stages — but the mix shifts meaningfully. SEM is stronger in Consideration (26.6%) and Conversion (23.8%), suggesting paid traffic carries higher intent.</div>
+      <div class="tabs" id="chanTabs">
+        <button class="tab on" onclick="swC('Awareness',this)">Awareness</button>
+        <button class="tab" onclick="swC('Consideration',this)">Consideration</button>
+        <button class="tab" onclick="swC('Conversion',this)">Conversion</button>
+      </div>
+      <div id="chanBody"></div>
+    </div>
+    <div class="panel">
+      <div class="ptitle">TOP LANDING PAGE CATEGORIES</div>
+      <button class="ib">i</button>
+      <div class="tt">Most common first page category per stage. Speaker Profile dominates all three stages — meaning the same landing page serves very different user intents. The page itself isn't the differentiator; what happens after it is.</div>
+      <div class="tabs" id="pageTabs">
+        <button class="tab on" onclick="swP('Awareness',this)">Awareness</button>
+        <button class="tab" onclick="swP('Consideration',this)">Consideration</button>
+        <button class="tab" onclick="swP('Conversion',this)">Conversion</button>
+      </div>
+      <div id="pageBody"></div>
+    </div>
+  </div>
+
+  <div class="story">
+    <button class="ib">i</button>
+    <div class="tt">Plain-English interpretation of the cluster model output, with three concrete actions — one per stage — that follow directly from the data.</div>
+    <div class="story-title">What the model is telling us</div>
+    <div class="story-sub">Key findings & recommended actions from the real cluster data</div>
+    <div class="story-body">
+      The model reveals a <strong>funnel with a near-total blockage at the top</strong>. The <span class="hi hi-b">Awareness cluster</span> (93.8%) is characterised by passive, single-profile sessions — users land on a Speaker page, browse briefly, and leave without exploring further. The <span class="hi hi-a">Consideration cluster</span> (4.9%) is a radically different user: they trigger <strong>51.9 events and visit 9.9 pages</strong>, yet still don't convert. These are deep researchers who need a conversion trigger, not more content. The <span class="hi hi-g">Conversion cluster</span> (1.1%) is the most revealing — they use <strong>fewer pages (4.4) and fewer events (21.6) than Consideration users</strong>, meaning they arrive with intent already formed.
+      <br><br>
+      The critical insight: <strong>Speaker Profile pages are the dominant landing page across all three stages</strong> (72.8%, 48.6%, 76.1%). The page isn't the problem — what happens after it is. Awareness users don't go further. Consideration users explore but hit no conversion trigger. Only a tiny fraction arrive ready to act.
+    </div>
+    <div class="actions">
+      <div class="act aw">
+        <div class="act-lbl">AWARENESS ACTION</div>
+        <p>Add strong next-step prompts directly on Speaker Profile pages — related speakers, curated lists, or a "see availability" CTA — to push beyond the 1.4-page average.</p>
+      </div>
+      <div class="act co">
+        <div class="act-lbl">CONSIDERATION ACTION</div>
+        <p>These users have done the research. Deploy exit-intent overlays, demo request CTAs, or limited-availability signals on high-dwell pages to trigger the conversion decision.</p>
+      </div>
+      <div class="act cv">
+        <div class="act-lbl">CONVERSION ACTION</div>
+        <p>Converters arrive ready — don't interrupt them. Optimise the Speaker Profile → booking path for speed and reduce friction on the request/enquiry form.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const SD={
+  Awareness:{color:'#378ADD',channels:[{n:'Organic Search',p:45.8},{n:'Direct / None',p:28.0},{n:'SEM – Google',p:12.8}],pages:[{n:'Speaker Profile',p:72.8},{n:'Speakers Overview',p:16.2},{n:'Home Page',p:5.6}]},
+  Consideration:{color:'#EF9F27',channels:[{n:'Organic Search',p:38.4},{n:'SEM – Google',p:26.6},{n:'Direct / None',p:20.8}],pages:[{n:'Speaker Profile',p:48.6},{n:'Speakers Overview',p:32.6},{n:'Home Page',p:16.0}]},
+  Conversion:{color:'#1a7a4a',channels:[{n:'Organic Search',p:36.8},{n:'Direct / None',p:24.0},{n:'SEM – Google',p:23.8}],pages:[{n:'Speaker Profile',p:76.1},{n:'Speakers Overview',p:17.2},{n:'Home Page',p:5.3}]}
+};
+function bars(items,color,id){document.getElementById(id).innerHTML=items.map(c=>`<div class="ch-row"><span class="ch-n">${c.n}</span><div class="ch-track"><div class="ch-fill" style="width:${c.p}%;background:${color}"></div></div><span class="ch-p">${c.p}%</span></div>`).join('')}
+function swC(s,b){document.querySelectorAll('#chanTabs .tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');bars(SD[s].channels,SD[s].color,'chanBody')}
+function swP(s,b){document.querySelectorAll('#pageTabs .tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');bars(SD[s].pages,SD[s].color,'pageBody')}
+bars(SD.Awareness.channels,'#378ADD','chanBody');
+bars(SD.Awareness.pages,'#378ADD','pageBody');
+new Chart(document.getElementById('engChart'),{
+  type:'bar',
+  data:{
+    labels:['Avg events','Page views','Unique pages'],
+    datasets:[
+      {label:'Awareness',data:[4.29,2.17,1.36],backgroundColor:'#deedfb',borderColor:'#378ADD',borderWidth:1.5},
+      {label:'Consideration',data:[51.90,23.23,9.94],backgroundColor:'#fef3db',borderColor:'#EF9F27',borderWidth:1.5},
+      {label:'Conversion',data:[21.60,9.63,4.36],backgroundColor:'#e0f4ec',borderColor:'#1a7a4a',borderWidth:1.5}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{backgroundColor:'#1a1a1a',titleColor:'#fff',bodyColor:'#ccc',cornerRadius:6,padding:8}},
+    scales:{
+      x:{ticks:{color:'#888',font:{size:11}},grid:{color:'#f0ede8'}},
+      y:{ticks:{color:'#888',font:{size:11}},grid:{color:'#f0ede8'}}
+    }
+  }
+});
+</script>
